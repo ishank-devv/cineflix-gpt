@@ -68,3 +68,30 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `npm run build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+# Cineflix-gpt app
+
+-create react app
+npx create-react-app cineflix-gpt
+
+-install & configure tailwind
+npm install -D tailwindcss
+npx tailwindcss init
+
+# Planning- Features
+
+- Login/Sign up
+  - Sign In/ Sign up form
+  - Once logged in , redirect to browse page
+- Browse ( comes only after authentication)
+
+  - Header
+  - Main Movie
+    - Trailer in Background
+    - Title & Description
+    - MovieSuggestion
+      - MovieLists \* N
+
+- CineflixGPT
+  - Search Bar
+  - Will give Movie Suggestions
