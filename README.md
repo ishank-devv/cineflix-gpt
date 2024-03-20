@@ -1,5 +1,7 @@
 # Cineflix-gpt app
 
+## Progress
+
 -create react app
 npx create-react-app cineflix-gpt
 
@@ -9,6 +11,7 @@ npx create-react-app cineflix-gpt
 - npm i -D react-router-dom
 - Header
 - Login Form
+- Sign up Form
 
 # Planning- Features
 
