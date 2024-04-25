@@ -1,36 +1,5 @@
 # Cineflix-gpt app
 
-## Progress
-
--create react app
-npx create-react-app cineflix-gpt
-
-- install & configure tailwind
-- npm install -D tailwindcss
-- npx tailwindcss init
-- npm i -D react-router-dom
-- Header
-- Login Form
-- Sign up Form
-
-# Planning- Features
-
-- Login/Sign up
-  - Sign In/ Sign up form
-  - Once logged in , redirect to browse page
-- Browse ( comes only after authentication)
-
-  - Header
-  - Main Movie
-    - Trailer in Background
-    - Title & Description
-    - MovieSuggestion
-      - MovieLists \* N
-
-- CineflixGPT
-  - Search Bar
-  - Will give Movie Suggestions
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
