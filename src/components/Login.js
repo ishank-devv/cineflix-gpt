@@ -23,16 +23,16 @@ const Login = () => {
     // validate the form data,
     // to do that we'll use ultility- validate.js file which conatins the logic
     // checkValidData(email, password);
-    console.log(fullNameRef.current.value);
-    console.log(emailRef.current.value);
-    console.log(passwordRef.current.value);
+    // console.log(fullNameRef.current.value);
+    // console.log(emailRef.current.value);
+    // console.log(passwordRef.current.value);
 
     const message = checkValidData(
       emailRef.current.value,
       passwordRef.current.value,
       fullNameRef.current.value
     );
-    console.log(message);
+    // console.log(message);
     setErrorMessage(message);
 
     //Signin /Sign Up
