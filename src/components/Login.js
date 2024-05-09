@@ -32,7 +32,7 @@ const Login = () => {
       passwordRef.current.value,
       fullNameRef.current.value
     );
-    // console.log(message);
+    console.log(message);
     setErrorMessage(message);
 
     //Signin /Sign Up
