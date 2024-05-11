@@ -1,6 +1,8 @@
 import React, { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../utils/firebase";
 
 const Login = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
@@ -34,8 +36,34 @@ const Login = () => {
     );
     console.log(message);
     setErrorMessage(message);
+    // if there is some message exists which means some error is there during validation
+    // then return code, dont go ahead to signin/signup
+    if (message) return;
 
+    // if data is valid then this message will be null
     //Signin /Sign Up
+    if (!isSignInForm) {
+      //Sign up Logic
+      createUserWithEmailAndPassword(
+        auth,
+        emailRef.current.value,
+        passwordRef.current.value
+      )
+        .then((userCredential) => {
+          // Signed up
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+          // ..
+        });
+    } else {
+      //Sign in Logic
+    }
   };
 
   return (
