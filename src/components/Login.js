@@ -1,7 +1,10 @@
 import React, { useState, useRef } from "react";
 import Header from "./Header";
 import { checkValidData } from "../utils/validate";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "../utils/firebase";
 
 const Login = () => {
@@ -13,7 +16,7 @@ const Login = () => {
   //1. create seperate state variable for email, password , name etc and bind it with input box to get data
   // that user is typing
   //2. useRef Hook: lets you refer the value not needed for rendering
-  const fullNameRef = useRef(null);
+  // const fullNameRef = useRef(null);
   const emailRef = useRef(null);
   const passwordRef = useRef(null);
 
@@ -31,8 +34,8 @@ const Login = () => {
 
     const message = checkValidData(
       emailRef.current.value,
-      passwordRef.current.value,
-      fullNameRef.current.value
+      passwordRef.current.value
+      // fullNameRef.current.value
     );
     console.log(message);
     setErrorMessage(message);
@@ -63,6 +66,22 @@ const Login = () => {
         });
     } else {
       //Sign in Logic
+      signInWithEmailAndPassword(
+        auth,
+        emailRef.current.value,
+        passwordRef.current.value
+      )
+        .then((userCredential) => {
+          // Signed in
+          const user = userCredential.user;
+          console.log(user);
+          // ...
+        })
+        .catch((error) => {
+          const errorCode = error.code;
+          const errorMessage = error.message;
+          setErrorMessage(errorCode + "-" + errorMessage);
+        });
     }
   };
 
@@ -85,7 +104,7 @@ const Login = () => {
         </h1>
         {!isSignInForm && (
           <input
-            ref={fullNameRef}
+            // ref={fullNameRef}
             type="text"
             placeholder="Full Name"
             className="p-4 my-4 w-full bg-gray-700"
